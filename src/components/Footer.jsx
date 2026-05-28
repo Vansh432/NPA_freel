@@ -29,11 +29,11 @@ export default function Footer() {
               ))}
             </div>
             <div className="flex flex-col gap-2.5 text-sm">
-              <a href="tel:+918000000000" className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors">
-                <Phone size={14} /> +91 80000 00000
+              <a href="tel:+919716188884" className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors">
+                <Phone size={14} /> +91 97161 88884
               </a>
-              <a href="mailto:info@npabazar.com" className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors">
-                <Mail size={14} /> info@npabazar.com
+              <a href="mailto:gnm@vkdlnpaadvisory.com" className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors">
+                <Mail size={14} /> gnm@vkdlnpaadvisory.com
               </a>
               <div className="flex items-start gap-2 text-white/55">
                 <MapPin size={14} className="mt-0.5 shrink-0" /> Mumbai & Delhi
@@ -65,8 +65,8 @@ export default function Footer() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Legal</h4>
             <ul className="flex flex-col gap-2 mb-6">
-              {['Privacy Policy', 'Terms & Conditions', 'Disclaimer', 'Refund Policy'].map(l => (
-                <li key={l}><a href="#" className="text-sm text-white/55 hover:text-gold transition-colors">{l}</a></li>
+              {[['Privacy Policy', '/privacy-policy'], ['Terms & Conditions', '/terms-conditions'], ['Disclaimer', '/disclaimer'], ['Refund Policy', '/refund-policy']].map(([l, h]) => (
+                <li key={l}><Link to={h} className="text-sm text-white/55 hover:text-gold transition-colors">{l}</Link></li>
               ))}
             </ul>
             <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-xs text-white/40 leading-relaxed">

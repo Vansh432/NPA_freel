@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react'
 
 const contactInfo = [
-  { icon: Phone,  label: 'Call Us',       value: '+91 80000 00000',       href: 'tel:+918000000000' },
-  { icon: Mail,   label: 'Email',          value: 'info@npabazar.com',     href: 'mailto:info@npabazar.com' },
-  { icon: MapPin, label: 'Mumbai Office',  value: 'Nariman Point, Mumbai – 400 021', href: null },
-  { icon: MapPin, label: 'Delhi Office',   value: 'Connaught Place, New Delhi – 110 001', href: null },
+  { icon: Phone,  label: 'Call Us',       value: '+91 97161 88884',       href: 'tel:+919716188884' },
+  { icon: Mail,   label: 'Email',          value: 'gnm@vkdlnpaadvisory.com',     href: 'mailto:gnm@vkdlnpaadvisory.com' },
+  { icon: MapPin, label: 'Mumbai Office',  value: '502, Awadhoot CHSL, Jaiprakash Road, Azad Nagar, Andheri (W), Mumbai 400053', href: null },
+  { icon: MapPin, label: 'Delhi Office',   value: '09, 3rd Floor, Regal Building, Connaught Place, New Delhi – 110001', href: null },
 ]
 
 export default function Contact() {
@@ -58,7 +58,7 @@ export default function Contact() {
               </div>
 
               {/* WhatsApp highlight */}
-              <motion.a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+              <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
                 whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-4 p-5 rounded-2xl border-2 border-green-400 bg-green-50">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ background: '#25D366' }}>
@@ -112,7 +112,7 @@ export default function Contact() {
                       className="text-slate-500 text-sm leading-relaxed max-w-sm">
                       Our expert team will review your case and contact you within 24 hours. For urgent matters, WhatsApp us directly.
                     </motion.p>
-                    <motion.a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+                    <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
                       className="inline-flex items-center gap-2 bg-green-500 text-white font-bold px-6 py-3 rounded-xl mt-2 hover:bg-green-600 transition-colors">
                       Continue on WhatsApp

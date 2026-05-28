@@ -114,11 +114,11 @@ export default function FAQ() {
             className="text-white/60 text-lg mb-8">Our experts are available for a free initial consultation. Ask us anything about your specific case.</motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all">
               Ask on WhatsApp <ArrowRight size={18} />
             </a>
-            <a href="tel:+918000000000"
+            <a href="tel:+919716188884"
               className="inline-flex items-center justify-center gap-2 bg-white/8 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 hover:bg-white/14 transition-all">
               Call Our Experts
             </a>

@@ -129,7 +129,7 @@ function BlogPost({ id }) {
             className="mt-12 bg-navy rounded-2xl p-8 text-center">
             <h3 className="font-serif text-2xl text-white mb-3">Need Expert Help With Your Case?</h3>
             <p className="text-white/60 text-sm mb-6">Our experts provide free initial consultation for your NPA or recovery matter.</p>
-            <a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold text-navy font-bold px-8 py-3.5 rounded-xl hover:bg-gold-light transition-all">
               WhatsApp for Free Consultation <ArrowRight size={16} />
             </a>

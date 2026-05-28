@@ -63,7 +63,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <motion.a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+        <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
           className="hidden lg:inline-flex items-center gap-2 ml-2 bg-gold text-navy font-bold text-sm px-5 py-2.5 rounded-lg shrink-0 shadow-lg shadow-gold/20">
           Free Consultation
@@ -95,7 +95,7 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+              <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
                 className="mt-4 bg-gold text-navy font-bold py-3.5 rounded-lg text-center">
                 Get Free Consultation

@@ -80,12 +80,12 @@ export default function Home() {
 
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.9 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 flex-wrap">
-            <motion.a href="https://wa.me/918000000000?text=Hello%2C%20I%20need%20a%20free%20consultation" target="_blank" rel="noopener noreferrer"
+            <motion.a href="https://wa.me/919716188884?text=Hello%2C%20I%20need%20a%20free%20consultation" target="_blank" rel="noopener noreferrer"
               whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
               className="flex items-center gap-2 bg-gold text-navy font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-gold/25 w-full sm:w-auto justify-center">
               Get Free Consultation <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}><ArrowRight size={18} /></motion.span>
             </motion.a>
-            <motion.a href="tel:+918000000000" whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
+            <motion.a href="tel:+919716188884" whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
               className="flex items-center gap-2 bg-white/8 text-white font-semibold text-base px-8 py-4 rounded-xl border border-white/20 hover:bg-white/14 transition-all w-full sm:w-auto justify-center">
               <Phone size={16} /> Call Now
             </motion.a>
@@ -195,7 +195,7 @@ export default function Home() {
           </div>
 
           <motion.div {...fade(0.3)} className="text-center mt-12">
-            <a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold text-navy font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all shadow-lg shadow-gold/25">
               Start Your Case Now <ArrowRight size={18} />
             </a>
@@ -340,12 +340,12 @@ export default function Home() {
             Don't wait. Every day counts. Get a free expert consultation today.
           </motion.p>
           <motion.div {...fade(0.2)} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+            <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
               className="flex items-center justify-center gap-2 bg-navy text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg">
               WhatsApp Now <ArrowRight size={18} />
             </motion.a>
-            <motion.a href="tel:+918000000000"
+            <motion.a href="tel:+919716188884"
               whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
               className="flex items-center justify-center gap-2 bg-white/30 text-navy font-bold px-8 py-4 rounded-xl text-base border-2 border-navy/20">
               <Phone size={18} /> Call Us Now

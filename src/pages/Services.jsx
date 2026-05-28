@@ -86,7 +86,7 @@ function ServiceCard({ s, index }) {
         </AnimatePresence>
 
         <div className="mt-5 pt-4 border-t border-slate-100">
-          <a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-navy text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-navy-mid transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-navy/20">
             Get Free Consultation <ArrowRight size={16} />
           </a>
@@ -152,7 +152,7 @@ export default function Services() {
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/918000000000" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all">
               WhatsApp for Free Advice <ArrowRight size={18} />
             </a>
