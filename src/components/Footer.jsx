@@ -13,28 +13,27 @@ export default function Footer() {
 
           {/* Brand */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <div className="flex items-center gap-2.5 mb-4">
-              {/* <div className="w-8 h-8 bg-gold rounded-lg flex items-center justify-center text-navy"><Scale size={17} /></div>
-              <span className="text-lg font-extrabold text-white">NPA <span className="text-gold">Bazar</span></span> */}
-                        <img src={logo} alt="NPA Bazar Logo" className="w-17 h-17" />
-              
+            <div className="flex items-center gap-2.5 mb-4 select-none">
+              <div className="bg-white px-3 py-1.5 rounded-xl shadow-md flex items-center border border-white/5 transition-transform duration-300 hover:scale-[1.03] inline-block">
+                <img src={logo} alt="NPA BAZAAR Logo" className="h-16 w-auto object-contain" />
+              </div>
             </div>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
               Professional advisory platform for stressed loan resolution, SARFAESI matters, DRT/NCLT support, and structured settlement guidance.
             </p>
             <div className="flex gap-3 mb-6">
               {[XIcon, LIIcon].map((Icon, i) => (
-                <motion.a key={i} href="#" whileHover={{ scale: 1.15, backgroundColor: '#d4a853', color: '#0a1628' }}
+                <motion.a key={i} href="#" whileHover={{ scale: 1.15, backgroundColor: '#e65f00', color: '#ffffff' }}
                   className="w-9 h-9 bg-white/7 rounded-lg flex items-center justify-center text-white/60 transition-colors">
                   <Icon />
                 </motion.a>
               ))}
             </div>
             <div className="flex flex-col gap-2.5 text-sm">
-              <a href="tel:+919716188884" className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors">
+              <a href="tel:+919716188884" className="flex items-center gap-2 text-white/55 hover:text-brand-orange transition-colors">
                 <Phone size={14} /> +91 97161 88884
               </a>
-              <a href="mailto:gnm@vkdlnpaadvisory.com" className="flex items-center gap-2 text-white/55 hover:text-gold transition-colors">
+              <a href="mailto:gnm@vkdlnpaadvisory.com" className="flex items-center gap-2 text-white/55 hover:text-brand-orange transition-colors">
                 <Mail size={14} /> gnm@vkdlnpaadvisory.com
               </a>
               <div className="flex items-start gap-2 text-white/55">
@@ -48,7 +47,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Services</h4>
             <ul className="flex flex-col gap-2">
               {['SMA-1 Advisory', 'SMA-2 Advisory', 'SARFAESI Support', 'DRT Cases', 'NCLT / IBC', 'OTS Negotiation', 'Cheque Bounce'].map(l => (
-                <li key={l}><Link to="/services" className="text-sm text-white/55 hover:text-gold transition-colors block">{l}</Link></li>
+                <li key={l}><Link to="/services" className="text-sm text-white/55 hover:text-brand-orange transition-colors block">{l}</Link></li>
               ))}
             </ul>
           </motion.div>
@@ -58,7 +57,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Quick Links</h4>
             <ul className="flex flex-col gap-2">
               {[['Home', '/'], ['About Us', '/about'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Contact Us', '/contact']].map(([l, h]) => (
-                <li key={l}><Link to={h} className="text-sm text-white/55 hover:text-gold transition-colors block">{l}</Link></li>
+                <li key={l}><Link to={h} className="text-sm text-white/55 hover:text-brand-orange transition-colors block">{l}</Link></li>
               ))}
             </ul>
           </motion.div>
@@ -68,19 +67,19 @@ export default function Footer() {
             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Legal</h4>
             <ul className="flex flex-col gap-2 mb-6">
               {[['Privacy Policy', '/privacy-policy'], ['Terms & Conditions', '/terms-conditions'], ['Disclaimer', '/disclaimer'], ['Refund Policy', '/refund-policy']].map(([l, h]) => (
-                <li key={l}><Link to={h} className="text-sm text-white/55 hover:text-gold transition-colors">{l}</Link></li>
+                <li key={l}><Link to={h} className="text-sm text-white/55 hover:text-brand-orange transition-colors">{l}</Link></li>
               ))}
             </ul>
             <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-xs text-white/40 leading-relaxed">
               <strong className="text-white/60 block mb-1">Disclaimer</strong>
-              NPA Bazar provides advisory/consultation support only. Outcome depends on facts and applicable laws. We are not a law firm.
+              NPA BAZAAR provides advisory/consultation support only. Outcome depends on facts and applicable laws. We are not a law firm.
             </div>
           </motion.div>
         </div>
 
         {/* Bottom */}
         <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
-          <p>© 2024 NPA Bazar. All rights reserved.</p>
+          <p>© 2024 NPA BAZAAR. All rights reserved.</p>
           <p>SARFAESI Advisory | DRT Support | OTS Negotiation | PAN India</p>
         </div>
       </div>

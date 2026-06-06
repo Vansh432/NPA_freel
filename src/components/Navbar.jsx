@@ -35,15 +35,10 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center gap-6">
-        <Link to="/" className="flex items-center gap-2.5 shrink-0">
-          {/* <motion.div whileHover={{ rotate: 10, scale: 1.1 }}
-            className="w-9 h-9 bg-gold rounded-lg flex items-center justify-center text-navy">
-            <Scale size={19} />
-          </motion.div>
-          <span className="text-xl font-extrabold text-white tracking-tight">
-            NPA  <span className="text-gold">Bazar</span>
-          </span> */}
-          <img src={logo} alt="NPA Bazar Logo" className="w-16 h-16" />
+        <Link to="/" className="flex items-center gap-2.5 shrink-0 select-none">
+          <div className="bg-white px-2 rounded-xl shadow-md flex items-center border border-white/5 transition-transform duration-300 hover:scale-[1.03]">
+            <img src={logo} alt="NPA BAZAAR Logo" className="h-18 w-18  object-contain" />
+          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 ml-auto">
@@ -55,9 +50,9 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 * i }}>
                 <Link to={l.href}
-                  className={`text-sm font-medium relative group transition-colors ${active ? 'text-gold' : 'text-white/80 hover:text-gold'}`}>
+                  className={`text-sm font-medium relative group transition-colors ${active ? 'text-brand-orange' : 'text-white/80 hover:text-brand-orange'}`}>
                   {l.label}
-                  <span className={`absolute -bottom-0.5 left-0 h-px bg-gold transition-all duration-300 ${active ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                  <span className={`absolute -bottom-0.5 left-0 h-px bg-brand-orange transition-all duration-300 ${active ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </Link>
               </motion.div>
             )
@@ -65,8 +60,8 @@ export default function Navbar() {
         </nav>
 
         <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
-          className="hidden lg:inline-flex items-center gap-2 ml-2 bg-gold text-navy font-bold text-sm px-5 py-2.5 rounded-lg shrink-0 shadow-lg shadow-gold/20">
+          whileHover={{ scale: 1.05, boxShadow: '0 8px 20px rgba(230,95,0,0.35)' }} whileTap={{ scale: 0.97 }}
+          className="hidden lg:inline-flex items-center gap-2 ml-2 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-bold text-sm px-5 py-2.5 rounded-lg shrink-0 shadow-lg shadow-brand-orange/20">
           Free Consultation
         </motion.a>
 
@@ -91,14 +86,14 @@ export default function Navbar() {
             <div className="px-6 pt-4 pb-6 flex flex-col gap-1">
               {links.map((l, i) => (
                 <motion.div key={l.label} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
-                  <Link to={l.href} className={`block py-3 border-b border-white/8 font-medium ${location.pathname === l.href ? 'text-gold' : 'text-white/80'}`}>
+                  <Link to={l.href} className={`block py-3 border-b border-white/8 font-medium ${location.pathname === l.href ? 'text-brand-orange' : 'text-white/80'}`}>
                     {l.label}
                   </Link>
                 </motion.div>
               ))}
               <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-                className="mt-4 bg-gold text-navy font-bold py-3.5 rounded-lg text-center">
+                className="mt-4 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-bold py-3.5 rounded-lg text-center shadow-lg shadow-brand-orange/20">
                 Get Free Consultation
               </motion.a>
             </div>

@@ -57,26 +57,25 @@ const stats = [
 export default function About() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative pt-32 pb-24 bg-navy overflow-hidden">
+          <section className="relative pt-32 pb-24 bg-navy overflow-hidden">
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
         <motion.div className="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[100px]"
-          style={{ background: 'radial-gradient(circle,#d4a853,transparent)', top: '-25%', right: '-10%' }}
+          style={{ background: 'radial-gradient(circle,var(--color-brand-orange),transparent)', top: '-25%', right: '-10%' }}
           animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 6, repeat: Infinity }} />
         <motion.div className="absolute w-[400px] h-[400px] rounded-full opacity-10 blur-[80px]"
-          style={{ background: 'radial-gradient(circle,#3b6fd4,transparent)', bottom: '-10%', left: '-5%' }}
+          style={{ background: 'radial-gradient(circle,var(--color-brand-green),transparent)', bottom: '-10%', left: '-5%' }}
           animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 8, repeat: Infinity, delay: 1 }} />
-
+ 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.span {...fade()}
-            className="inline-flex items-center gap-2 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-7">
-            About NPA Bazar
+            className="inline-flex items-center gap-2 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-7">
+            About NPA BAZAAR
           </motion.span>
           <motion.h1 {...fade(0.1)} className="font-serif text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-[1.1]">
-            Trusted NPA Resolution<br /><span className="text-gold">Since 2006</span>
+            Trusted NPA Resolution<br /><span className="text-brand-orange">Since 2006</span>
           </motion.h1>
           <motion.p {...fade(0.2)} className="text-white/65 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            NPA Bazar is a professional advisory platform assisting individuals and businesses in stressed loan resolution, SARFAESI matters, DRT/NCLT support, and structured settlement guidance.
+            NPA BAZAAR is a professional advisory platform assisting individuals and businesses in stressed loan resolution, SARFAESI matters, DRT/NCLT support, and structured settlement guidance.
           </motion.p>
 
           {/* Stats ribbon */}
@@ -85,7 +84,7 @@ export default function About() {
             style={{ background: 'rgba(255,255,255,0.05)' }}>
             {stats.map(s => (
               <div key={s.lbl} className="flex flex-col items-center py-5 px-3 gap-0.5">
-                <span className="text-xl md:text-2xl font-extrabold text-gold">{s.val}</span>
+                <span className="text-xl md:text-2xl font-extrabold text-brand-orange">{s.val}</span>
                 <span className="text-xs text-white/50 uppercase tracking-wider text-center">{s.lbl}</span>
               </div>
             ))}
@@ -98,12 +97,12 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Who We Are</span>
+              <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Who We Are</span>
               <h2 className="font-serif text-4xl md:text-5xl text-navy mb-6 leading-tight">
                 India's Specialist in<br />Stressed Loan Advisory
               </h2>
               <p className="text-slate-500 leading-relaxed mb-5 text-base">
-                Founded in 2006, NPA Bazar has grown into one of India's most trusted NPA resolution advisory firms. Our multidisciplinary team comprises former bankers, legal experts, and financial advisors with deep knowledge of India's banking recovery laws.
+                Founded in 2006, NPA BAZAAR has grown into one of India's most trusted NPA resolution advisory firms. Our multidisciplinary team comprises former bankers, legal experts, and financial advisors with deep knowledge of India's banking recovery laws.
               </p>
               <p className="text-slate-500 leading-relaxed mb-8 text-base">
                 We work alongside PSU banks, private lenders, NBFCs, and ARCs to help borrowers navigate the complex regulatory landscape — whether it is a SARFAESI notice, DRT case, OTS negotiation, or NCLT insolvency proceeding.
@@ -113,16 +112,16 @@ export default function About() {
                 Get Free Consultation <ArrowRight size={17} />
               </Link>
             </motion.div>
-
+ 
             {/* Stats grid */}
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="grid grid-cols-2 gap-4">
               {stats.map((s, i) => (
                 <motion.div key={s.lbl}
-                  initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }}
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  className="bg-navy rounded-2xl p-6 text-center shadow-lg shadow-navy/10">
-                  <div className="text-2xl md:text-3xl font-extrabold text-gold mb-1 tracking-tight">{s.val}</div>
+                   initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }}
+                   whileHover={{ scale: 1.05, y: -3 }}
+                   className="bg-navy rounded-2xl p-6 text-center shadow-lg shadow-navy/10">
+                  <div className="text-2xl md:text-3xl font-extrabold text-brand-orange mb-1 tracking-tight">{s.val}</div>
                   <div className="text-white/55 text-xs uppercase tracking-wider">{s.lbl}</div>
                 </motion.div>
               ))}
@@ -144,14 +143,14 @@ export default function About() {
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div {...fade()} className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
               Our Purpose
             </span>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">
               What Drives Us Every Day
             </h2>
             <p className="text-white/55 text-lg max-w-lg mx-auto">
-              Two guiding principles behind everything we do at NPA Bazar.
+              Two guiding principles behind everything we do at NPA BAZAAR.
             </p>
           </motion.div>
 
@@ -165,22 +164,22 @@ export default function About() {
               transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               whileHover={{ y: -6 }}
               className="relative rounded-3xl overflow-hidden group"
-              style={{ background: 'linear-gradient(135deg, rgba(212,168,83,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(212,168,83,0.25)' }}
+              style={{ background: 'linear-gradient(135deg, rgba(230,95,0,0.12) 0%, rgba(255,255,255,0.04) 100%)', border: '1px solid rgba(230,95,0,0.25)' }}
             >
               {/* Top glow bar */}
-              <div className="h-1 w-full bg-gradient-to-r from-gold via-gold-light to-gold" />
+              <div className="h-1 w-full bg-gradient-to-r from-brand-orange via-brand-orange-light to-brand-orange" />
 
               <div className="p-10">
                 {/* Icon */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-gold/20"
-                  style={{ background: 'linear-gradient(135deg, #d4a853, #f0c878)' }}
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-orange/20"
+                  style={{ background: 'linear-gradient(135deg, var(--color-brand-orange), var(--color-brand-orange-light))' }}
                 >
-                  <Target size={30} className="text-navy" />
+                  <Target size={30} className="text-white" />
                 </motion.div>
 
-                <span className="text-gold text-xs font-bold uppercase tracking-[0.15em] block mb-3">Our Mission</span>
+                <span className="text-brand-orange text-xs font-bold uppercase tracking-[0.15em] block mb-3">Our Mission</span>
                 <h3 className="font-serif text-3xl text-white mb-5 leading-tight">
                   Accessible Financial Resolution for Every Borrower
                 </h3>
@@ -203,7 +202,7 @@ export default function About() {
                       transition={{ delay: 0.4 + i * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle2 size={16} className="text-gold shrink-0 mt-0.5" />
+                      <CheckCircle2 size={16} className="text-brand-green-light shrink-0 mt-0.5" />
                       <span className="text-white/70 text-sm leading-relaxed">{pt}</span>
                     </motion.div>
                   ))}
@@ -272,7 +271,7 @@ export default function About() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Core Values</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Core Values</span>
             <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">How We Work</h2>
             <p className="text-slate-500 text-lg max-w-md mx-auto">The principles that guide every case we take on.</p>
           </motion.div>
@@ -284,9 +283,9 @@ export default function About() {
                 whileHover={{ y: -8, boxShadow: '0 24px 48px rgba(10,22,40,0.12)' }}
                 className="bg-white border border-slate-200 rounded-2xl p-8 group relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-orange to-brand-orange-light scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
                 <motion.div whileHover={{ scale: 1.15, rotate: 8 }}
-                  className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-gold mb-5 shadow-md shadow-navy/15">
+                  className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center text-brand-orange mb-5 shadow-md shadow-navy/15">
                   <v.icon size={22} />
                 </motion.div>
                 <h3 className="text-navy font-bold text-lg mb-2">{v.title}</h3>
@@ -301,7 +300,7 @@ export default function About() {
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our Journey</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our Journey</span>
             <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">18 Years of Excellence</h2>
             <p className="text-slate-500 text-lg max-w-md mx-auto">From a Mumbai startup to a PAN India advisory platform.</p>
           </motion.div>
@@ -321,7 +320,7 @@ export default function About() {
                     whileInView={{ scale: [0.5, 1.15, 1], opacity: [0, 1, 1] }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-navy font-extrabold text-sm shadow-lg shadow-gold/30 z-10 group-hover:shadow-gold/50 transition-shadow"
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-orange to-brand-orange-dark flex items-center justify-center text-white font-extrabold text-sm shadow-lg shadow-brand-orange/30 z-10 group-hover:shadow-brand-orange/50 transition-shadow"
                   >
                     {m.year}
                   </motion.div>
@@ -330,17 +329,17 @@ export default function About() {
                       initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: i * 0.1 + 0.3 }}
                       className="w-0.5 flex-1 my-3 origin-top"
-                      style={{ background: 'linear-gradient(to bottom, #d4a853, #e2e8f0)', minHeight: '40px' }}
+                      style={{ background: 'linear-gradient(to bottom, var(--color-brand-orange), #e2e8f0)', minHeight: '40px' }}
                     />
                   )}
                 </div>
-
+ 
                 {/* Content */}
                 <motion.div
                   whileHover={{ x: 4 }}
                   className={`flex-1 ${i < milestones.length - 1 ? 'pb-10' : ''} pt-3`}
                 >
-                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 group-hover:border-gold/40 group-hover:shadow-md transition-all duration-300">
+                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 group-hover:border-brand-orange/40 group-hover:shadow-md transition-all duration-300">
                     <h3 className="text-navy font-bold text-lg mb-1.5">{m.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed">{m.desc}</p>
                   </div>
@@ -358,7 +357,7 @@ export default function About() {
           animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 7, repeat: Infinity }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div {...fade()} className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our Team</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our Team</span>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">Meet Our Experts</h2>
             <p className="text-white/55 text-lg max-w-md mx-auto">Experienced professionals who have handled thousands of NPA cases.</p>
           </motion.div>
@@ -372,28 +371,28 @@ export default function About() {
                 style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)', border: '1px solid rgba(255,255,255,0.12)' }}
               >
                 {/* Card top bar */}
-                <div className="h-1 bg-gradient-to-r from-gold to-gold-light" />
-
+                <div className="h-1 bg-gradient-to-r from-brand-orange to-brand-orange-light" />
+ 
                 <div className="p-8">
                   {/* Avatar area */}
                   <div className="flex items-center gap-5 mb-6">
                     <motion.div whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-16 h-16 rounded-2xl bg-gold/15 border border-gold/25 flex items-center justify-center text-4xl">
+                      className="w-16 h-16 rounded-2xl bg-brand-orange/15 border border-brand-orange/25 flex items-center justify-center text-4xl">
                       {t.icon}
                     </motion.div>
                     <div>
                       <h3 className="text-white font-bold text-xl">{t.name}</h3>
-                      <p className="text-gold text-sm font-semibold">{t.role}</p>
+                      <p className="text-brand-orange text-sm font-semibold">{t.role}</p>
                       <p className="text-white/40 text-xs mt-0.5">{t.exp} · {t.domain}</p>
                     </div>
                   </div>
-
+ 
                   <p className="text-white/60 text-sm leading-relaxed mb-6">{t.bio}</p>
-
+ 
                   {/* Expertise tags */}
                   <div className="flex flex-wrap gap-2">
                     {t.tags.map(tag => (
-                      <span key={tag} className="text-xs font-semibold bg-gold/10 border border-gold/20 text-gold px-3 py-1 rounded-full">
+                      <span key={tag} className="text-xs font-semibold bg-brand-orange/10 border border-brand-orange/20 text-brand-orange px-3 py-1 rounded-full">
                         {tag}
                       </span>
                     ))}
@@ -409,7 +408,7 @@ export default function About() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Locations</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Locations</span>
             <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">Visit Us</h2>
             <p className="text-slate-500 text-lg max-w-sm mx-auto">Two offices. Remote consultation available PAN India.</p>
           </motion.div>
@@ -431,11 +430,11 @@ export default function About() {
                 <div className="p-7 bg-white">
                   <h3 className="text-navy font-bold text-xl mb-4">{o.city} Office</h3>
                   <div className="flex items-start gap-3 text-slate-500 text-sm mb-3">
-                    <MapPin size={16} className="shrink-0 mt-0.5 text-gold-dark" />
+                    <MapPin size={16} className="shrink-0 mt-0.5 text-brand-orange-dark" />
                     <span>{o.addr}</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-500 text-sm">
-                    <Phone size={16} className="text-gold-dark" />
+                    <Phone size={16} className="text-brand-orange-dark" />
                     <a href={`tel:${o.phone.replace(/\s/g, '')}`} className="hover:text-navy transition-colors font-medium">{o.phone}</a>
                   </div>
                 </div>

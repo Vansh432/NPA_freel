@@ -32,7 +32,7 @@ export default function Contact() {
     }
   }
 
-  const cls = name => `w-full bg-white border rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder:text-slate-300 outline-none transition-all duration-200 ${focused === name ? 'border-gold ring-2 ring-gold/15 shadow-sm' : 'border-slate-200'}`
+  const cls = name => `w-full bg-white border rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder:text-slate-300 outline-none transition-all duration-200 ${focused === name ? 'border-brand-orange ring-2 ring-brand-orange/15 shadow-sm' : 'border-slate-200'}`
   const fp = name => ({ name, onFocus: () => setFocused(name), onBlur: () => setFocused(''), className: cls(name) })
 
   return (
@@ -41,16 +41,16 @@ export default function Contact() {
       <section className="relative pt-32 pb-16 bg-navy overflow-hidden">
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
         <motion.div className="absolute w-[400px] h-[400px] rounded-full opacity-15 blur-[80px]"
-          style={{ background: 'radial-gradient(circle,#d4a853,transparent)', top: '-5%', right: '5%' }}
+          style={{ background: 'radial-gradient(circle,var(--color-brand-orange),transparent)', top: '-5%', right: '5%' }}
           animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 6, repeat: Infinity }} />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            className="inline-flex items-center gap-1.5 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+            className="inline-flex items-center gap-1.5 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             Contact Us
           </motion.span>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="font-serif text-5xl md:text-6xl text-white mb-5">
-            Get Expert Help<br /><span className="text-gold">Today — It's Free</span>
+            Get Expert Help<br /><span className="text-brand-orange">Today — It's Free</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-white/65 text-lg">
@@ -89,13 +89,13 @@ export default function Contact() {
                 <motion.div key={c.label}
                   initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 + i * 0.1 }}
                   whileHover={{ x: 4 }} className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark shrink-0">
+                  <div className="w-10 h-10 bg-brand-orange/8 rounded-xl flex items-center justify-center text-brand-orange shrink-0">
                     <c.icon size={18} />
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">{c.label}</div>
                     {c.href
-                      ? <a href={c.href} className="text-navy font-semibold text-sm hover:text-gold-dark transition-colors">{c.value}</a>
+                      ? <a href={c.href} className="text-navy font-semibold text-sm hover:text-brand-orange transition-colors">{c.value}</a>
                       : <div className="text-navy font-semibold text-sm">{c.value}</div>
                     }
                   </div>
@@ -186,7 +186,7 @@ export default function Contact() {
                       <div className="flex flex-wrap gap-3">
                         {['Phone Call', 'Video Call', 'WhatsApp', 'Office Visit'].map(mode => (
                           <label key={mode} className="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="mode" value={mode} className="accent-gold" />
+                            <input type="radio" name="mode" value={mode} className="accent-brand-orange" />
                             <span className="text-sm text-slate-600">{mode}</span>
                           </label>
                         ))}
@@ -202,9 +202,9 @@ export default function Contact() {
                     </div>
 
                     <motion.button type="submit"
-                      whileHover={{ scale: 1.02, boxShadow: '0 12px 28px rgba(10,22,40,0.2)' }}
+                      whileHover={{ scale: 1.02, boxShadow: '0 8px 20px rgba(230,95,0,0.3)' }}
                       whileTap={{ scale: 0.97 }}
-                      className="flex items-center justify-center gap-2.5 bg-navy text-white font-bold text-base py-3.5 rounded-xl hover:bg-navy-mid transition-colors">
+                      className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-extrabold text-base py-3.5 rounded-xl transition-all shadow-md shadow-brand-orange/25">
                       <Send size={16} /> Submit Case Details
                     </motion.button>
 

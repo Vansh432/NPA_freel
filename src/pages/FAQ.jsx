@@ -13,7 +13,7 @@ function FAQItem({ faq, index }) {
       <button onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-slate-50 transition-colors">
         <span className="text-navy font-semibold text-sm leading-snug">{faq.q}</span>
-        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }} className="shrink-0 text-gold-dark">
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }} className="shrink-0 text-brand-orange">
           <ChevronDown size={18} />
         </motion.span>
       </button>
@@ -46,16 +46,16 @@ export default function FAQ() {
       <section className="relative pt-32 pb-16 bg-navy overflow-hidden">
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
         <motion.div className="absolute w-[400px] h-[400px] rounded-full opacity-15 blur-[80px]"
-          style={{ background: 'radial-gradient(circle,#d4a853,transparent)', top: '-10%', right: '5%' }}
+          style={{ background: 'radial-gradient(circle,var(--color-brand-orange),transparent)', top: '-10%', right: '5%' }}
           animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 6, repeat: Infinity }} />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            className="inline-flex items-center gap-1.5 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+            className="inline-flex items-center gap-1.5 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             FAQ
           </motion.span>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="font-serif text-5xl md:text-6xl text-white mb-5">
-            Frequently Asked<br /><span className="text-gold">Questions</span>
+            Frequently Asked<br /><span className="text-brand-orange">Questions</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-white/65 text-lg">
@@ -115,7 +115,7 @@ export default function FAQ() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all">
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-brand-orange/30 transition-all shadow-md shadow-brand-orange/25">
               Ask on WhatsApp <ArrowRight size={18} />
             </a>
             <a href="tel:+919716188884"

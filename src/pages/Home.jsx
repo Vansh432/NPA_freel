@@ -6,21 +6,22 @@ import { useInView } from '../hooks/useInView'
 import { useCounter } from '../hooks/useCounter'
 
 /* ─── Animated counter stat ─── */
-function StatItem({ value, suffix, prefix, label, started }) {
+function StatItem({ value, suffix, prefix, label, started, color }) {
   const count = useCounter(value, 2200, started)
+  const textClr = color === 'green' ? 'text-brand-green-light' : 'text-brand-orange'
   return (
     <div className="flex flex-col items-center py-6 px-4 gap-1">
-      <span className="text-3xl font-extrabold text-gold tracking-tight">{prefix}{count.toLocaleString()}{suffix}</span>
+      <span className={`text-3xl font-extrabold ${textClr} tracking-tight`}>{prefix}{count.toLocaleString()}{suffix}</span>
       <span className="text-xs text-white/60 uppercase tracking-widest text-center">{label}</span>
     </div>
   )
 }
 
 const heroStats = [
-  { value: 5000, suffix: '+',  prefix: '',  label: 'Cases Handled' },
-  { value: 94,   suffix: '%',  prefix: '',  label: 'Success Rate' },
-  { value: 500,  suffix: '+',  prefix: '₹', label: 'Cr Settlements' },
-  { value: 18,   suffix: '+',  prefix: '',  label: 'Years Experience' },
+  { value: 5000, suffix: '+',  prefix: '',  label: 'Cases Handled', color: 'orange' },
+  { value: 94,   suffix: '%',  prefix: '',  label: 'Success Rate', color: 'green' },
+  { value: 500,  suffix: '+',  prefix: '₹', label: 'Cr Settlements', color: 'orange' },
+  { value: 18,   suffix: '+',  prefix: '',  label: 'Years Experience', color: 'orange' },
 ]
 
 const fade = (delay = 0) => ({
@@ -43,15 +44,15 @@ export default function Home() {
             backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)',
             backgroundSize: '60px 60px'
           }} />
-          <motion.div className="absolute w-[700px] h-[700px] rounded-full opacity-20 blur-[100px]"
-            style={{ background: 'radial-gradient(circle, #d4a853, transparent)', top: '-20%', right: '-10%' }}
+          <motion.div className="absolute w-[700px] h-[700px] rounded-full opacity-20 blur-[120px]"
+            style={{ background: 'radial-gradient(circle, var(--color-brand-orange), transparent)', top: '-20%', right: '-10%' }}
             animate={{ scale: [1, 1.15, 1], opacity: [0.18, 0.26, 0.18] }}
             transition={{ duration: 6, repeat: Infinity }} />
-          <motion.div className="absolute w-[500px] h-[500px] rounded-full opacity-12 blur-[80px]"
-            style={{ background: 'radial-gradient(circle, #3b6fd4, transparent)', bottom: '-10%', left: '-5%' }}
-            animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 7, repeat: Infinity, delay: 1 }} />
+          <motion.div className="absolute w-[500px] h-[500px] rounded-full opacity-15 blur-[100px]"
+            style={{ background: 'radial-gradient(circle, var(--color-brand-green), transparent)', bottom: '-10%', left: '-5%' }}
+            animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.18, 0.1] }} transition={{ duration: 7, repeat: Infinity, delay: 1 }} />
           {[...Array(6)].map((_, i) => (
-            <motion.div key={i} className="absolute rounded-full bg-gold/20"
+            <motion.div key={i} className="absolute rounded-full bg-brand-orange/20"
               style={{ width: `${8 + i * 4}px`, height: `${8 + i * 4}px`, left: `${10 + i * 15}%`, top: `${20 + (i % 3) * 25}%` }}
               animate={{ y: [0, -(20 + i * 8), 0], opacity: [0.2, 0.6, 0.2], scale: [1, 1.3, 1] }}
               transition={{ duration: 3 + i * 0.8, repeat: Infinity, delay: i * 0.5 }} />
@@ -60,7 +61,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-gold/10 text-gold border border-gold/30 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-7">
+            className="inline-flex items-center gap-2 bg-brand-orange/10 text-brand-orange border border-brand-orange/30 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-7">
             <ShieldCheck size={14} /> SARFAESI • DRT • NCLT • OTS • Cheque Bounce
           </motion.div>
 
@@ -68,7 +69,7 @@ export default function Home() {
             <motion.h1 key={i}
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.16 }}
-              className={`font-serif leading-[1.15] block ${i === 1 ? 'text-gold' : 'text-white'} text-5xl md:text-6xl lg:text-7xl`}>
+              className={`font-serif leading-[1.15] block ${i === 1 ? 'text-brand-orange' : 'text-white'} text-5xl md:text-6xl lg:text-7xl`}>
               {line}
             </motion.h1>
           ))}
@@ -81,8 +82,8 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.9 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 flex-wrap">
             <motion.a href="https://wa.me/919716188884?text=Hello%2C%20I%20need%20a%20free%20consultation" target="_blank" rel="noopener noreferrer"
-              whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 bg-gold text-navy font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-gold/25 w-full sm:w-auto justify-center">
+              whileHover={{ scale: 1.04, y: -2, boxShadow: '0 8px 20px rgba(230,95,0,0.3)' }} whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-brand-orange/20 w-full sm:w-auto justify-center">
               Get Free Consultation <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}><ArrowRight size={18} /></motion.span>
             </motion.a>
             <motion.a href="tel:+919716188884" whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
@@ -120,7 +121,7 @@ export default function Home() {
         <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
           <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
-            <motion.div className="w-1 h-2 bg-gold rounded-full"
+            <motion.div className="w-1 h-2 bg-brand-orange rounded-full"
               animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
           </div>
         </motion.div>
@@ -130,7 +131,7 @@ export default function Home() {
       <section id="services" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our Services</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Our Services</span>
             <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">Comprehensive NPA Resolution</h2>
             <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">From SMA warning stage to full insolvency proceedings, we cover every stage of the stressed loan lifecycle.</p>
           </motion.div>
@@ -143,9 +144,8 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(10,22,40,0.12)' }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 group relative overflow-hidden cursor-pointer"
-              >
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+                className="bg-white border border-slate-200 rounded-2xl p-6 group relative overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-green to-brand-orange scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
                 
                 {/* Service Card Image Header */}
                 <div className="relative h-44 -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-2xl">
@@ -154,10 +154,10 @@ export default function Home() {
                     {s.icon}
                   </div>
                 </div>
-
+ 
                 <h3 className="text-navy font-bold text-base mb-2">{s.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-4">{s.short}</p>
-                <Link to={`/services#${s.id}`} className="text-gold-dark text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                <Link to={`/services#${s.id}`} className="text-brand-orange text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
                   Learn more <ChevronRight size={14} />
                 </Link>
               </motion.div>
@@ -177,7 +177,7 @@ export default function Home() {
       <section className="py-24 bg-navy">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">How It Works</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">How It Works</span>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">5 Simple Steps to Resolution</h2>
             <p className="text-white/60 text-lg max-w-xl mx-auto">A transparent, structured process — from case registration to final settlement.</p>
           </motion.div>
@@ -193,7 +193,7 @@ export default function Home() {
               >
                 {i < steps.length - 1 && <div className="hidden lg:block absolute top-8 left-1/2 w-full h-px border-t-2 border-dashed border-white/15 z-0" />}
                 <motion.div whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 rounded-full bg-gold flex items-center justify-center text-navy font-extrabold text-lg mb-4 relative z-10 shadow-lg shadow-gold/25">
+                  className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-orange to-brand-orange-light flex items-center justify-center text-white font-extrabold text-lg mb-4 relative z-10 shadow-lg shadow-brand-orange/20">
                   {step.num}
                 </motion.div>
                 <h3 className="text-white font-bold text-sm mb-2">{step.title}</h3>
@@ -204,7 +204,7 @@ export default function Home() {
 
           <motion.div {...fade(0.3)} className="text-center mt-12">
             <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold text-navy font-bold px-8 py-4 rounded-xl hover:bg-gold-light transition-all shadow-lg shadow-gold/25">
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-brand-orange/30 transition-all shadow-md shadow-brand-orange/25">
               Start Your Case Now <ArrowRight size={18} />
             </a>
           </motion.div>
@@ -215,8 +215,8 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Why Choose Us</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">The NPA Bazar Advantage</h2>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Why Choose Us</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">The NPA BAZAAR Advantage</h2>
             <p className="text-slate-500 text-lg max-w-lg mx-auto">Thousands of borrowers have trusted us to navigate India's complex banking recovery landscape.</p>
           </motion.div>
 
@@ -239,7 +239,7 @@ export default function Home() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-14">
-            <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Client Reviews</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Client Reviews</span>
             <h2 className="font-serif text-4xl md:text-5xl text-navy mb-4">Real Results, Real People</h2>
             <p className="text-slate-500 text-lg">Trusted by thousands of borrowers across India.</p>
           </motion.div>
@@ -253,13 +253,13 @@ export default function Home() {
                 <div className="flex gap-1">
                   {[...Array(t.rating)].map((_, j) => (
                     <motion.span key={j} initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 + i * 0.1 + j * 0.05 }}>
-                      <Star size={14} className="fill-gold text-gold" />
+                      <Star size={14} className="fill-brand-orange text-brand-orange" />
                     </motion.span>
                   ))}
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed italic flex-1">"{t.review}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-navy to-navy-mid flex items-center justify-center text-gold font-bold text-xs shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-navy to-navy-mid flex items-center justify-center text-brand-orange font-bold text-xs shrink-0">
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
@@ -278,26 +278,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <motion.div {...fade()} className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
             <div>
-              <span className="inline-flex items-center gap-1.5 bg-gold/10 text-gold-dark border border-gold/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Latest Articles</span>
+              <span className="inline-flex items-center gap-1.5 bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/25 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">Latest Articles</span>
               <h2 className="font-serif text-4xl md:text-5xl text-navy">From Our Blog</h2>
             </div>
-            <Link to="/blog" className="text-gold-dark font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all shrink-0">View All Articles <ChevronRight size={16} /></Link>
+            <Link to="/blog" className="text-brand-orange font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all shrink-0">View All Articles <ChevronRight size={16} /></Link>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogs.slice(0, 3).map((b, i) => (
               <motion.div key={b.id}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(10,22,40,0.1)' }}
-                className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden group">
-                <div className="h-3 bg-gradient-to-r from-gold to-gold-light" />
+                whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(10,22,40,0.1)', border: '1px solid rgba(230,95,0,0.2)' }}
+                className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden group transition-all">
+                <div className="h-2 bg-gradient-to-r from-brand-orange to-brand-orange-light" />
                 <div className="p-7">
-                  <span className="text-xs font-bold text-gold-dark bg-gold/10 px-3 py-1 rounded-full">{b.category}</span>
+                  <span className="text-xs font-bold text-brand-orange bg-brand-orange/8 px-3 py-1 rounded-full">{b.category}</span>
                   <h3 className="text-navy font-bold text-base mt-3 mb-2 leading-snug group-hover:text-navy-mid transition-colors">{b.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-4">{b.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400">{b.date}</span>
-                    <Link to={`/blog/${b.id}`} className="text-gold-dark text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                    <Link to={`/blog/${b.id}`} className="text-brand-orange text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
                       Read more <ChevronRight size={14} />
                     </Link>
                   </div>
@@ -312,7 +312,7 @@ export default function Home() {
       <section className="py-24 bg-navy">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div {...fade()} className="text-center mb-12">
-            <span className="inline-flex items-center gap-1.5 bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">FAQ</span>
+            <span className="inline-flex items-center gap-1.5 bg-brand-orange/15 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">FAQ</span>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">Common Questions</h2>
             <p className="text-white/60 text-lg">Quick answers to the most frequent NPA & recovery questions.</p>
           </motion.div>
@@ -329,7 +329,7 @@ export default function Home() {
           </div>
 
           <motion.div {...fade(0.2)} className="text-center">
-            <Link to="/faq" className="inline-flex items-center gap-2 bg-gold text-navy font-bold px-8 py-3.5 rounded-xl hover:bg-gold-light transition-all">
+            <Link to="/faq" className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-orange to-brand-orange-light text-white font-bold px-8 py-3.5 rounded-xl hover:shadow-lg hover:shadow-brand-orange/30 transition-all shadow-md shadow-brand-orange/25">
               View All FAQs <ArrowRight size={18} />
             </Link>
           </motion.div>
@@ -337,25 +337,25 @@ export default function Home() {
       </section>
 
       {/* ─── CTA BANNER ─── */}
-      <section className="py-20 bg-gradient-to-br from-gold via-gold-light to-gold relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-brand-orange via-brand-orange-light to-brand-orange-dark relative overflow-hidden">
         <motion.div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.15) 1px,transparent 1px)', backgroundSize: '40px 40px' }} />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <motion.h2 {...fade()} className="font-serif text-4xl md:text-5xl text-navy mb-4">
+          <motion.h2 {...fade()} className="font-serif text-4xl md:text-5xl text-white mb-4">
             Got a SARFAESI Notice or NPA Problem?
           </motion.h2>
-          <motion.p {...fade(0.1)} className="text-navy/70 text-lg mb-8">
+          <motion.p {...fade(0.1)} className="text-white/90 text-lg mb-8">
             Don't wait. Every day counts. Get a free expert consultation today.
           </motion.p>
           <motion.div {...fade(0.2)} className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
-              whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-              className="flex items-center justify-center gap-2 bg-navy text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg">
+              whileHover={{ scale: 1.04, boxShadow: '0 10px 25px rgba(6,21,45,0.35)' }} whileTap={{ scale: 0.97 }}
+              className="flex items-center justify-center gap-2 bg-navy text-white font-extrabold px-8 py-4 rounded-xl text-base shadow-lg transition-all">
               WhatsApp Now <ArrowRight size={18} />
             </motion.a>
             <motion.a href="tel:+919716188884"
-              whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-              className="flex items-center justify-center gap-2 bg-white/30 text-navy font-bold px-8 py-4 rounded-xl text-base border-2 border-navy/20">
+              whileHover={{ scale: 1.04, backgroundColor: 'rgba(255,255,255,0.45)' }} whileTap={{ scale: 0.97 }}
+              className="flex items-center justify-center gap-2 bg-white/30 text-navy font-bold px-8 py-4 rounded-xl text-base border-2 border-navy/15 transition-colors">
               <Phone size={18} /> Call Us Now
             </motion.a>
           </motion.div>
