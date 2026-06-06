@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Scale } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-
+import logo from '../assets/NPA_log.png'
 const links = [
   { label: 'Home',        href: '/' },
   { label: 'About Us',    href: '/about' },
@@ -36,13 +36,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center gap-6">
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
-          <motion.div whileHover={{ rotate: 10, scale: 1.1 }}
+          {/* <motion.div whileHover={{ rotate: 10, scale: 1.1 }}
             className="w-9 h-9 bg-gold rounded-lg flex items-center justify-center text-navy">
             <Scale size={19} />
           </motion.div>
           <span className="text-xl font-extrabold text-white tracking-tight">
-            NPA <span className="text-gold">Bazar</span>
-          </span>
+            NPA  <span className="text-gold">Bazar</span>
+          </span> */}
+          <img src={logo} alt="NPA Bazar Logo" className="w-16 h-16" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 ml-auto">
