@@ -1,7 +1,15 @@
+import smaImg from '../assets/service_sma.png'
+import sarfaesiImg from '../assets/service_sarfaesi.png'
+import drtImg from '../assets/service_drt.png'
+import ncltImg from '../assets/service_nclt.png'
+import otsImg from '../assets/service_ots.png'
+import chequeImg from '../assets/service_cheque.png'
+
 export const services = [
   {
     id: 'sma',
     icon: '📋',
+    image: smaImg,
     title: 'SMA Resolution Support',
     short: 'Early intervention for SMA-1 (31–60 days) & SMA-2 (61–90 days) accounts. Stop NPA before it happens.',
     overview: 'SMA (Special Mention Account) is the critical warning stage before your loan becomes NPA. SMA-1 means EMI overdue 31–60 days; SMA-2 means 61–90 days — the last window before NPA declaration. Immediate expert intervention at either stage can prevent SARFAESI proceedings and protect your credit score.',
@@ -17,6 +25,7 @@ export const services = [
   {
     id: 'sarfaesi',
     icon: '🏛️',
+    image: sarfaesiImg,
     title: 'SARFAESI Notice Assistance',
     short: 'Expert help for Section 13(2) and 13(4) notices. Auction prevention guidance.',
     overview: 'The SARFAESI Act, 2002 allows banks to recover secured loans without court intervention. Once you receive a Section 13(2) notice, you have 60 days to respond. Our experts guide you through every step.',
@@ -32,6 +41,7 @@ export const services = [
   {
     id: 'drt',
     icon: '⚖️',
+    image: drtImg,
     title: 'DRT & DRAT Cases',
     short: 'Debt Recovery Tribunal assistance. Auction stay & borrower rights protection.',
     overview: 'Debt Recovery Tribunal (DRT) is a specialized court for banking recovery matters above ₹20 lakh. Borrowers can approach DRT to challenge wrongful bank action, get auction stays, and present their case.',
@@ -46,6 +56,7 @@ export const services = [
   {
     id: 'nclt',
     icon: '🏢',
+    image: ncltImg,
     title: 'NCLT & NCLAT Cases',
     short: 'Corporate insolvency support under IBC. Resolution Professional coordination.',
     overview: 'NCLT (National Company Law Tribunal) handles corporate insolvency under the Insolvency and Bankruptcy Code (IBC). If creditors file against your company, you need expert IBC guidance immediately.',
@@ -60,6 +71,7 @@ export const services = [
   {
     id: 'ots',
     icon: '🤝',
+    image: otsImg,
     title: 'One Time Settlement (OTS)',
     short: 'Bank settlement negotiation. Lump sum & installment OTS structures.',
     overview: 'OTS (One Time Settlement) is the most common and effective way to close a stressed loan account. Banks accept a reduced amount as full and final settlement. Our experts negotiate the best possible OTS for you.',
@@ -75,6 +87,7 @@ export const services = [
   {
     id: 'cheque',
     icon: '📄',
+    image: chequeImg,
     title: 'Legal Notice & Cheque Bounce Cases',
     short: 'Section 138 NI Act support. Criminal liability prevention & negotiation.',
     overview: 'Cheque bounce under Section 138 of the Negotiable Instruments Act carries criminal liability including fine and imprisonment. Quick action — legal notice reply and negotiation — is the best strategy.',

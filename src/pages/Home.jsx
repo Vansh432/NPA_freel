@@ -146,7 +146,15 @@ export default function Home() {
                 className="bg-white border border-slate-200 rounded-2xl p-6 group relative overflow-hidden cursor-pointer"
               >
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-gold to-gold-light scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
-                <div className="text-3xl mb-4">{s.icon}</div>
+                
+                {/* Service Card Image Header */}
+                <div className="relative h-44 -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-2xl">
+                  <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute top-4 left-4 w-10 h-10 bg-white/95 backdrop-blur shadow-sm rounded-xl flex items-center justify-center text-xl z-10">
+                    {s.icon}
+                  </div>
+                </div>
+
                 <h3 className="text-navy font-bold text-base mb-2">{s.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-4">{s.short}</p>
                 <Link to={`/services#${s.id}`} className="text-gold-dark text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">

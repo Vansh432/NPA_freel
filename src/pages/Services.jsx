@@ -14,82 +14,91 @@ function ServiceCard({ s, index }) {
     >
       {/* Card header */}
       <div className="h-1.5 bg-gradient-to-r from-gold to-gold-light" />
-      <div className="p-8">
-        <div className="flex items-start gap-4 mb-4">
-          <div className="text-4xl">{s.icon}</div>
-          <div className="flex-1">
-            <h3 className="text-navy font-bold text-xl mb-1">{s.title}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">{s.short}</p>
+      <div className="p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column - Content */}
+        <div className="lg:col-span-7 flex flex-col">
+          <div className="flex items-start gap-4 mb-4">
+            <div className="text-4xl">{s.icon}</div>
+            <div className="flex-1">
+              <h3 className="text-navy font-bold text-xl mb-1">{s.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{s.short}</p>
+            </div>
+          </div>
+
+          {/* Overview */}
+          <div className="bg-slate-50 rounded-xl p-5 mb-5">
+            <h4 className="text-navy font-bold text-sm mb-2">Overview</h4>
+            <p className="text-slate-600 text-sm leading-relaxed">{s.overview}</p>
+          </div>
+
+          {/* Who needs */}
+          <div className="mb-5">
+            <h4 className="text-navy font-semibold text-sm mb-1">Who Needs This?</h4>
+            <p className="text-slate-500 text-sm">{s.whoNeeds}</p>
+          </div>
+
+          {/* Process + Docs collapsible */}
+          <button onClick={() => setOpen(o => !o)}
+            className="w-full flex items-center justify-between text-gold-dark font-semibold text-sm py-3 border-t border-slate-100">
+            View Process & Documents
+            <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <ChevronDown size={16} />
+            </motion.span>
+          </button>
+
+          <AnimatePresence>
+            {open && (
+              <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
+                  <div>
+                    <h4 className="text-navy font-bold text-sm mb-3">Our Process</h4>
+                    <ul className="flex flex-col gap-2">
+                      {s.process.map((p, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                          <span className="w-5 h-5 rounded-full bg-gold/15 text-gold-dark font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-navy font-bold text-sm mb-3">Required Documents</h4>
+                    <ul className="flex flex-col gap-2">
+                      {s.documents.map((d, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                          <span className="text-gold mt-0.5">✓</span>{d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* FAQs */}
+                <div className="mt-5 border-t border-slate-100 pt-5">
+                  <h4 className="text-navy font-bold text-sm mb-3">FAQs</h4>
+                  {s.faqs.map((f, i) => (
+                    <div key={i} className="mb-3">
+                      <p className="text-navy font-semibold text-sm">Q: {f.q}</p>
+                      <p className="text-slate-500 text-sm mt-1">{f.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="mt-5 pt-4 border-t border-slate-100">
+            <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-navy text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-navy-mid transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-navy/20">
+              Get Free Consultation <ArrowRight size={16} />
+            </a>
           </div>
         </div>
 
-        {/* Overview */}
-        <div className="bg-slate-50 rounded-xl p-5 mb-5">
-          <h4 className="text-navy font-bold text-sm mb-2">Overview</h4>
-          <p className="text-slate-600 text-sm leading-relaxed">{s.overview}</p>
-        </div>
-
-        {/* Who needs */}
-        <div className="mb-5">
-          <h4 className="text-navy font-semibold text-sm mb-1">Who Needs This?</h4>
-          <p className="text-slate-500 text-sm">{s.whoNeeds}</p>
-        </div>
-
-        {/* Process + Docs collapsible */}
-        <button onClick={() => setOpen(o => !o)}
-          className="w-full flex items-center justify-between text-gold-dark font-semibold text-sm py-3 border-t border-slate-100">
-          View Process & Documents
-          <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} />
-          </motion.span>
-        </button>
-
-        <AnimatePresence>
-          {open && (
-            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
-                <div>
-                  <h4 className="text-navy font-bold text-sm mb-3">Our Process</h4>
-                  <ul className="flex flex-col gap-2">
-                    {s.process.map((p, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                        <span className="w-5 h-5 rounded-full bg-gold/15 text-gold-dark font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-navy font-bold text-sm mb-3">Required Documents</h4>
-                  <ul className="flex flex-col gap-2">
-                    {s.documents.map((d, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                        <span className="text-gold mt-0.5">✓</span>{d}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* FAQs */}
-              <div className="mt-5 border-t border-slate-100 pt-5">
-                <h4 className="text-navy font-bold text-sm mb-3">FAQs</h4>
-                {s.faqs.map((f, i) => (
-                  <div key={i} className="mb-3">
-                    <p className="text-navy font-semibold text-sm">Q: {f.q}</p>
-                    <p className="text-slate-500 text-sm mt-1">{f.a}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div className="mt-5 pt-4 border-t border-slate-100">
-          <a href="https://wa.me/919716188884" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-navy text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-navy-mid transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-navy/20">
-            Get Free Consultation <ArrowRight size={16} />
-          </a>
+        {/* Right Column - Image */}
+        <div className="lg:col-span-5 w-full h-64 sm:h-80 lg:h-full lg:min-h-[380px] relative rounded-2xl overflow-hidden shadow-md group shrink-0 lg:sticky lg:top-28">
+          <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent opacity-85 group-hover:opacity-40 transition-opacity duration-300" />
         </div>
       </div>
     </motion.div>

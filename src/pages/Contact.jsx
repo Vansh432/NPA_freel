@@ -10,12 +10,27 @@ const contactInfo = [
 ]
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', org: '', email: '', phone: '', caseType: '', npa: '', message: '' })
+  const [form, setForm] = useState({ name: '', org: '', email: '', phone: '', caseType: '', npa: '', message: '', attachment: null })
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState('')
+  const [attachmentPreview, setAttachmentPreview] = useState('')
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
-  const handleSubmit = e => { e.preventDefault(); setSubmitted(true) }
+  const handleFileChange = e => {
+    const file = e.target.files?.[0] || null
+    if (attachmentPreview) URL.revokeObjectURL(attachmentPreview)
+    setForm(f => ({ ...f, attachment: file }))
+    setAttachmentPreview(file ? URL.createObjectURL(file) : '')
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    setSubmitted(true)
+    if (attachmentPreview) {
+      URL.revokeObjectURL(attachmentPreview)
+      setAttachmentPreview('')
+    }
+  }
 
   const cls = name => `w-full bg-white border rounded-lg px-3.5 py-2.5 text-sm text-navy placeholder:text-slate-300 outline-none transition-all duration-200 ${focused === name ? 'border-gold ring-2 ring-gold/15 shadow-sm' : 'border-slate-200'}`
   const fp = name => ({ name, onFocus: () => setFocused(name), onBlur: () => setFocused(''), className: cls(name) })
@@ -176,6 +191,14 @@ export default function Contact() {
                           </label>
                         ))}
                       </div>
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-xs font-semibold text-slate-600 tracking-wide">Attach Image (optional)</label>
+                      <input type="file" accept="image/*" onChange={handleFileChange} {...fp('attachment')} />
+                      {attachmentPreview && (
+                        <img src={attachmentPreview} alt="preview" className="mt-2 max-h-40 rounded-md object-cover" />
+                      )}
                     </div>
 
                     <motion.button type="submit"
